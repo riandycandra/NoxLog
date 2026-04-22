@@ -142,7 +142,7 @@ class EmailService {
 
         try {
             await this.transporter.sendMail(mailOptions);
-            console.log('📧 Premium notification email sent successfully.');
+            console.log('📧 Notification email sent successfully.');
         } catch (error) {
             console.error('❌ Failed to send email:', error.message);
             throw error;
