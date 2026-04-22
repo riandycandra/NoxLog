@@ -8,7 +8,7 @@ async function main() {
     const emailService = new EmailService();
     const outputFilename = 'installed_apps.json';
 
-    console.log('🔍 AppSentinel is scanning for installed applications...');
+    console.log('🔍 Noxlog is scanning for installed applications...');
 
     try {
         const apps = await scanner.getInstalledApps();

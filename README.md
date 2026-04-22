@@ -1,8 +1,8 @@
-# 🛡️ AppSentinel
+# 🕵️ Noxlog
 
-**AppSentinel** is a premium, lightweight macOS application monitoring and inventory service. It scans your installed software, categorizes them by purpose, and sends beautifully styled HTML email reports whenever a change is detected (new installs or version updates).
+**Noxlog** is a silent, universal application monitoring and version logging service. It scans your installed software, categorizes them by purpose, and sends beautifully styled HTML email reports whenever a change is detected (new installs or version updates).
 
-Designed to be run as a recurring background service (cronjob), AppSentinel ensures you always have a clear, automated pulse on your software environment.
+Designed to be run as a recurring background service (cronjob), Noxlog ensures you always have a clear, automated pulse on your software environment without any manual effort.
 
 ---
 
@@ -26,8 +26,8 @@ Designed to be run as a recurring background service (cronjob), AppSentinel ensu
 ### 2. Installation
 Clone the repository and install dependencies:
 ```bash
-git clone https://github.com/riandycandra/AppSentinel.git
-cd app-sentinel
+git clone https://github.com/riandycandra/Noxlog.git
+cd noxlog
 npm install
 ```
 
@@ -58,7 +58,7 @@ npm start
 - [ ] **Export Options**: Support for CSV and Markdown export formats.
 - [ ] **Slack/Discord Integration**: Send change alerts directly to chat channels.
 - [ ] **Dependency Audit**: Integrate security vulnerability scanning for installed versions.
-- [ ] **Global CLI**: Convert the project into an NPM package to support `npx appsentinel` or global `appsentinel` commands.
+- [ ] **Global CLI**: Convert the project into an NPM package to support `npx noxlog` or global `noxlog` commands.
 
 ---
 
@@ -66,4 +66,4 @@ npm start
 This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
 
 ---
-*Generated with ❤️ by AppSentinel.*
+*Generated with 🕵️ by Noxlog.*

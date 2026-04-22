@@ -1,7 +1,7 @@
 {
-  "name": "app-sentinel",
+  "name": "noxlog",
   "version": "1.0.0",
-  "description": "Universal application monitoring and change detection service.",
+  "description": "Silent, universal application monitoring and version logging service.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
