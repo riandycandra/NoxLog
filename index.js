@@ -1,7 +1,7 @@
 const AppScanner = require('./scanner');
 const EmailService = require('./email_service');
 const fs = require('fs').promises;
-require('dotenv').config();
+require('dotenv').config({ quiet: true});
 
 async function main() {
     const scanner = new AppScanner();
