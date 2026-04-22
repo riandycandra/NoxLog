@@ -1,0 +1,15 @@
+{
+  "name": "app-sentinel",
+  "version": "1.0.0",
+  "description": "Universal application monitoring and change detection service.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "nodemailer": "^8.0.5"
+  }
+}
