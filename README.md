@@ -58,6 +58,7 @@ npm start
 - [ ] **Export Options**: Support for CSV and Markdown export formats.
 - [ ] **Slack/Discord Integration**: Send change alerts directly to chat channels.
 - [ ] **Dependency Audit**: Integrate security vulnerability scanning for installed versions.
+- [ ] **Global CLI**: Convert the project into an NPM package to support `npx appsentinel` or global `appsentinel` commands.
 
 ---
 
