@@ -65,6 +65,12 @@ noxlog -o md
 
 # Export to HTML
 noxlog -o html
+
+# Show help
+noxlog --help
+
+# Show version
+noxlog --version
 ```
 
 ---

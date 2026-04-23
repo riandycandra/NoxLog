@@ -14,6 +14,33 @@ async function main() {
 
     // Parse arguments
     const args = process.argv.slice(2);
+    
+    if (args.includes('-h') || args.includes('--help')) {
+        console.log(`
+🕵️  Noxlog - Universal App Inventory & Monitor
+
+Usage:
+  noxlog [options]
+
+Options:
+  -o [xlsx|md|html]  Export the current scan results to a file
+  -h, --help         Show this help message
+  -v, --version      Show version number
+
+Description:
+  Noxlog scans your system for installed applications, categorizes them, 
+  and tracks changes over time. If email settings are configured in .env, 
+  it sends a notification when new apps are installed or updated.
+        `);
+        process.exit(0);
+    }
+
+    if (args.includes('-v') || args.includes('--version')) {
+        const pkg = require('./package.json');
+        console.log(`noxlog v${pkg.version}`);
+        process.exit(0);
+    }
+
     const outputArgIndex = args.indexOf('-o');
     let exportFormat = null;
     if (outputArgIndex !== -1 && args[outputArgIndex + 1]) {
