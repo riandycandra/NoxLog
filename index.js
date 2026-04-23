@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 const AppScanner = require('./scanner');
 const EmailService = require('./email_service');
+const AppExporter = require('./exporter');
 const fs = require('fs').promises;
+const pkg = require('./package.json');
 require('dotenv').config({ quiet: true});
 
 async function main() {
     const scanner = new AppScanner();
     const emailService = new EmailService();
-    const AppExporter = require('./exporter');
     const exporter = new AppExporter();
     
     const outputFilename = 'installed_apps.json';
@@ -36,7 +37,6 @@ Description:
     }
 
     if (args.includes('-v') || args.includes('--version')) {
-        const pkg = require('./package.json');
         console.log(`noxlog v${pkg.version}`);
         process.exit(0);
     }
