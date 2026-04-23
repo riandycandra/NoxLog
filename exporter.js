@@ -38,8 +38,9 @@ class AppExporter {
         const workbook = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(workbook, worksheet, "Applications");
         
-        // XLSX.writeFile is synchronous and handles file creation
-        XLSX.writeFile(workbook, filename);
+        // Generate a buffer and write it asynchronously
+        const buffer = XLSX.write(workbook, { type: 'buffer', bookType: 'xlsx' });
+        await fs.writeFile(filename, buffer);
     }
 
     async toMarkdown(filename, apps) {
