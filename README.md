@@ -39,15 +39,22 @@ npm install
 ```
 
 ### 3. Configuration
-Copy the environment template and fill in your SMTP details:
-```bash
-cp .env.example .env
-```
-Edit `.env` with your credentials:
+When using the global `noxlog` command, the tool looks for configuration and saves history in your **current working directory**.
+
+1. Create a `.env` file in the folder where you intend to run your scans:
+   ```bash
+   # Create .env in your current folder
+   touch .env
+   ```
+
+2. Edit `.env` with your SMTP credentials to enable email alerts:
 - `EMAIL_HOST`: Your SMTP server (e.g., smtp.gmail.com)
 - `EMAIL_USER`: Your email address
 - `EMAIL_PASS`: Your app-specific password
 - `EMAIL_TO`: Recipient address
+
+> [!TIP]
+> If you are setting up an automated task (like Cron or Task Scheduler), ensure the command is executed within the folder containing your `.env` file so it can load your settings correctly.
 
 ### 4. Usage
 Run a manual scan using the global command:
