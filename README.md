@@ -52,7 +52,7 @@ npm start
 
 ## 🛠️ Roadmap (TODO)
 
-- [ ] **Windows Support**: Implement `wmic` or `Get-ItemProperty` scanners for Windows environments.
+- [x] **Windows Support**: Implement `wmic` or `Get-ItemProperty` scanners for Windows environments.
 - [ ] **Linux Support**: Add support for `dpkg`, `rpm`, and `snap` package managers.
 - [ ] **Dashboard UI**: A local web interface to visualize software trends over time.
 - [ ] **Export Options**: Support for CSV and Markdown export formats.
