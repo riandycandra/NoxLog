@@ -1,4 +1,5 @@
 const nodemailer = require('nodemailer');
+const { escapeHtml } = require('./utils');
 require('dotenv').config({ quiet: true});
 
 class EmailService {
@@ -87,15 +88,15 @@ class EmailService {
                             ${newApps.map(app => `
                                 <tr>
                                     <td><span class="badge badge-new">NEW</span></td>
-                                    <td><b>${app.name}</b></td>
-                                    <td>v${app.version}</td>
+                                    <td><b>${escapeHtml(app.name)}</b></td>
+                                    <td>v${escapeHtml(app.version)}</td>
                                 </tr>
                             `).join('')}
                             ${updatedApps.map(app => `
                                 <tr>
                                     <td><span class="badge badge-update">UPDATE</span></td>
-                                    <td><b>${app.name}</b></td>
-                                    <td><span class="version-old">${app.oldVersion}</span> → <span class="version-new">${app.newVersion}</span></td>
+                                    <td><b>${escapeHtml(app.name)}</b></td>
+                                    <td><span class="version-old">${escapeHtml(app.oldVersion)}</span> → <span class="version-new">${escapeHtml(app.newVersion)}</span></td>
                                 </tr>
                             `).join('')}
                         </tbody>
@@ -116,9 +117,9 @@ class EmailService {
                         ${allApps.map((app, i) => `
                             <tr>
                                 <td style="color: #bdc1c6;">${i + 1}</td>
-                                <td><b>${app.name}</b></td>
-                                <td>${app.version}</td>
-                                <td class="category">${app.category}</td>
+                                <td><b>${escapeHtml(app.name)}</b></td>
+                                <td>${escapeHtml(app.version)}</td>
+                                <td class="category">${escapeHtml(app.category)}</td>
                             </tr>
                         `).join('')}
                     </tbody>
