@@ -1,5 +1,6 @@
 const fs = require('fs').promises;
 const XLSX = require('xlsx');
+const { escapeHtml } = require('./utils');
 
 class AppExporter {
     /**
@@ -130,9 +131,9 @@ class AppExporter {
                 ${apps.map((app, i) => `
                     <tr>
                         <td style="color: #bdc1c6;">${i + 1}</td>
-                        <td><strong>${app.name}</strong></td>
-                        <td><span class="version">${app.version}</span></td>
-                        <td class="category">${app.category}</td>
+                        <td><strong>${escapeHtml(app.name)}</strong></td>
+                        <td><span class="version">${escapeHtml(app.version)}</span></td>
+                        <td class="category">${escapeHtml(app.category)}</td>
                     </tr>
                 `).join('')}
             </tbody>
