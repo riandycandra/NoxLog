@@ -1,6 +1,6 @@
 {
   "name": "@riandycandra/noxlog",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Silent, universal application monitoring and version logging service.",
   "main": "index.js",
   "scripts": {
