@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^17.4.2",
-    "nodemailer": "^8.0.5"
+    "nodemailer": "^8.0.5",
+    "xlsx": "^0.18.5"
   }
 }

@@ -48,6 +48,18 @@ Run a manual scan:
 npm start
 ```
 
+Export results to a specific format:
+```bash
+# Export to Excel
+npm start -- -o xlsx
+
+# Export to Markdown
+npm start -- -o md
+
+# Export to HTML
+npm start -- -o html
+```
+
 ---
 
 ## 🛠️ Roadmap (TODO)
@@ -55,7 +67,7 @@ npm start
 - [x] **Windows Support**: Implement `wmic` or `Get-ItemProperty` scanners for Windows environments.
 - [ ] **Linux Support**: Add support for `dpkg`, `rpm`, and `snap` package managers.
 - [ ] **Dashboard UI**: A local web interface to visualize software trends over time.
-- [ ] **Export Options**: Support for CSV and Markdown export formats.
+- [x] **Export Options**: Support for Excel, Markdown, or HTML export formats.
 - [ ] **Slack/Discord Integration**: Send change alerts directly to chat channels.
 - [ ] **Dependency Audit**: Integrate security vulnerability scanning for installed versions.
 - [ ] **Global CLI**: Convert the project into an NPM package to support `npx noxlog` or global `noxlog` commands.

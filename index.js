@@ -6,12 +6,34 @@ require('dotenv').config({ quiet: true});
 async function main() {
     const scanner = new AppScanner();
     const emailService = new EmailService();
+    const AppExporter = require('./exporter');
+    const exporter = new AppExporter();
+    
     const outputFilename = 'installed_apps.json';
+
+    // Parse arguments
+    const args = process.argv.slice(2);
+    const outputArgIndex = args.indexOf('-o');
+    let exportFormat = null;
+    if (outputArgIndex !== -1 && args[outputArgIndex + 1]) {
+        exportFormat = args[outputArgIndex + 1].toLowerCase();
+    }
 
     console.log('🔍 Noxlog is scanning for installed applications...');
 
     try {
         const apps = await scanner.getInstalledApps();
+        
+        // Handle export if requested
+        if (exportFormat) {
+            console.log(`\n📤 Exporting results as ${exportFormat.toUpperCase()}...`);
+            try {
+                const exportedFile = await exporter.export(exportFormat, apps);
+                console.log(`✅ Export successful: ${exportedFile}`);
+            } catch (exportError) {
+                console.error(`❌ Export failed: ${exportError.message}`);
+            }
+        }
         
         // Try to load previous data
         let previousData = {};

@@ -3,4 +3,5 @@ node_modules/
 **/*.DS_Store
 installed_apps.json
 **/*.plist
+noxlog_export_*
 **/*.log
