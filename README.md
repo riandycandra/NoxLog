@@ -24,7 +24,14 @@ Designed to be run as a recurring background service (cronjob), Noxlog ensures y
 - macOS (Universal support coming soon)
 
 ### 2. Installation
-Clone the repository and install dependencies:
+You can install Noxlog locally for development or globally to use the CLI command anywhere.
+
+**Global Installation (Recommended):**
+```bash
+npm install -g .
+```
+
+**Local Development:**
 ```bash
 git clone https://github.com/riandycandra/Noxlog.git
 cd noxlog
@@ -43,21 +50,21 @@ Edit `.env` with your credentials:
 - `EMAIL_TO`: Recipient address
 
 ### 4. Usage
-Run a manual scan:
+Run a manual scan using the global command:
 ```bash
-npm start
+noxlog
 ```
 
 Export results to a specific format:
 ```bash
 # Export to Excel
-npm start -- -o xlsx
+noxlog -o xlsx
 
 # Export to Markdown
-npm start -- -o md
+noxlog -o md
 
 # Export to HTML
-npm start -- -o html
+noxlog -o html
 ```
 
 ---
@@ -70,7 +77,7 @@ npm start -- -o html
 - [x] **Export Options**: Support for Excel, Markdown, or HTML export formats.
 - [ ] **Slack/Discord Integration**: Send change alerts directly to chat channels.
 - [ ] **Dependency Audit**: Integrate security vulnerability scanning for installed versions.
-- [ ] **Global CLI**: Convert the project into an NPM package to support `npx noxlog` or global `noxlog` commands.
+- [x] **Global CLI**: Convert the project into an NPM package to support `npx noxlog` or global `noxlog` commands.
 
 ---
 

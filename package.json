@@ -6,11 +6,26 @@
   "scripts": {
     "start": "node index.js"
   },
-  "author": "",
+  "author": "Riandy Candra",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riandycandra/NoxLog.git"
+  },
   "dependencies": {
     "dotenv": "^17.4.2",
     "nodemailer": "^8.0.5",
     "xlsx": "^0.18.5"
-  }
+  },
+  "bin": {
+    "noxlog": "index.js"
+  },
+  "files": [
+    "index.js",
+    "scanner.js",
+    "exporter.js",
+    "email_service.js",
+    "README.md",
+    "LICENSE"
+  ]
 }

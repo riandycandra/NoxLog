@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const AppScanner = require('./scanner');
 const EmailService = require('./email_service');
 const fs = require('fs').promises;
