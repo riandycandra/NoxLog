@@ -49,6 +49,8 @@ When using the global `noxlog` command, the tool looks for configuration and sav
 
 2. Edit `.env` with your SMTP credentials to enable email alerts:
 - `EMAIL_HOST`: Your SMTP server (e.g., smtp.gmail.com)
+- `EMAIL_PORT`: SMTP port (e.g., 465 or 587)
+- `EMAIL_SECURE`: Use SSL/TLS (true for 465, false for 587)
 - `EMAIL_USER`: Your email address
 - `EMAIL_PASS`: Your app-specific password
 - `EMAIL_TO`: Recipient address
