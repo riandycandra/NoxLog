@@ -4,7 +4,8 @@
   "description": "Silent, universal application monitoring and version logging service.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "node --test"
   },
   "author": "Riandy Candra",
   "license": "ISC",
