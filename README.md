@@ -28,7 +28,7 @@ You can install Noxlog locally for development or globally to use the CLI comman
 
 **Global Installation (Recommended):**
 ```bash
-npm install -g .
+npm install -g @riandycandra/noxlog
 ```
 
 **Local Development:**

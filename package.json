@@ -1,5 +1,5 @@
 {
-  "name": "noxlog",
+  "name": "@riandycandra/noxlog",
   "version": "1.0.0",
   "description": "Silent, universal application monitoring and version logging service.",
   "main": "index.js",
