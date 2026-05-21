@@ -10,10 +10,17 @@ class AppExporter {
      * @returns {Promise<string>} The filename of the exported file
      */
     async export(format, apps) {
-        const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
-        const filename = `noxlog_export_${timestamp}.${format}`;
+        const normalizedFormat = format.toLowerCase();
+        const allowedFormats = ['xlsx', 'md', 'html'];
 
-        switch (format.toLowerCase()) {
+        if (!allowedFormats.includes(normalizedFormat)) {
+            throw new Error(`Unsupported export format: ${format}`);
+        }
+
+        const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
+        const filename = `noxlog_export_${timestamp}.${normalizedFormat}`;
+
+        switch (normalizedFormat) {
             case 'xlsx':
                 await this.toExcel(filename, apps);
                 break;
@@ -23,8 +30,6 @@ class AppExporter {
             case 'html':
                 await this.toHtml(filename, apps);
                 break;
-            default:
-                throw new Error(`Unsupported export format: ${format}`);
         }
         return filename;
     }
