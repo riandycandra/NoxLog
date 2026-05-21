@@ -36,10 +36,6 @@ class AppScanner {
     }
 
     /**
-     * Retrieves the list of installed applications and filters for name and version.
-     * @returns {Promise<Array<{name: string, version: string}>>}
-     */
-    /**
      * Categorizes an application based on its name.
      * @param {string} name 
      * @returns {string}
