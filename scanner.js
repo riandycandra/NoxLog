@@ -1,6 +1,22 @@
 const { exec } = require('child_process');
 const fs = require('fs').promises;
 
+const WIN_REGISTRY_PATHS = [
+    'HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*',
+    'HKLM:\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*',
+    'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*'
+];
+
+const WIN_POWERSHELL_PIPELINE = [
+    `Get-ItemProperty ${WIN_REGISTRY_PATHS.join(', ')}`,
+    'Where-Object { $_.DisplayName -ne $null }',
+    "Select-Object @{Name='_name';Expression={$_.DisplayName}}, @{Name='version';Expression={$_.DisplayVersion}}, @{Name='path';Expression={$_.InstallLocation}}",
+    'ConvertTo-Json'
+];
+
+const WIN_COMMAND = `powershell -Command "${WIN_POWERSHELL_PIPELINE.join(' | ')}"`;
+const MAC_COMMAND = 'system_profiler SPApplicationsDataType -json';
+
 /**
  * AppScanner handles retrieving and formatting installed applications on macOS and Windows.
  */
@@ -13,9 +29,7 @@ class AppScanner {
         const isWin = process.platform === 'win32';
         // On Windows, we query the registry for installed programs.
         // On macOS, we use system_profiler.
-        const command = isWin
-            ? `powershell -Command "Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*, HKLM:\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*, HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\* | Where-Object { $_.DisplayName -ne $null } | Select-Object @{Name='_name';Expression={$_.DisplayName}}, @{Name='version';Expression={$_.DisplayVersion}}, @{Name='path';Expression={$_.InstallLocation}} | ConvertTo-Json"`
-            : 'system_profiler SPApplicationsDataType -json';
+        const command = isWin ? WIN_COMMAND : MAC_COMMAND;
 
         return new Promise((resolve, reject) => {
             exec(command, { maxBuffer: 1024 * 1024 * 50 }, (error, stdout, stderr) => {
